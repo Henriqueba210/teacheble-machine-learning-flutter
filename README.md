@@ -32,7 +32,7 @@ Tutorial de criação deste app [clique aqui](https://medium.com/@kleberandrade/
 *   [x] Crie um projeto novo no Teachable Machine, crie suas classes e faça upload das imagens; Treine, faça download do seu modelo e adicione ao projeto;
 *   [ ] Quando clicar para tirar fotos, eu gostaria de poder escolher entre câmera ou galeria de imagens. Estude mais a fundo o plugin [ImagePicker](https://pub.dev/packages/image_picker) ([exemplo de uso](https://heartbeat.fritz.ai/using-the-camera-gallery-in-flutter-apps-2f9e8e0e5899));
 *   [ ] Altere o tema do seu aplicativo - já fizemos isso várias vezes; Teste seu aplicativo para ver se ele reconhece os objetos;
-*   [ ] Escrever um relatório explicando de no máximo 2 páginas, explicando o resultado da sua classificação de imagens;
+*   [x] Escrever um relatório explicando de no máximo 2 páginas, explicando o resultado da sua classificação de imagens;
 
 ## Licença
 
