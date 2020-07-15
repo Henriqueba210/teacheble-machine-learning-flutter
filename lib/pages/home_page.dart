@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:teachable_ml/helpers/camera_helper.dart';
+import 'package:teachable_ml/helpers/image_helper.dart';
 import 'package:teachable_ml/helpers/tflite_helper.dart';
 import 'package:teachable_ml/models/tflite_result.dart';
 
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.photo_camera),
-        onPressed: _pickImage,
+        onPressed: _imagePickerDialog,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SafeArea(
@@ -78,8 +78,33 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _pickImage() async {
-    final image = await CameraHelper.pickImage();
+  _imagePickerDialog() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(title: Text("Camera/Gallery"), children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () async {
+                Navigator.pop(context);
+                _pickImage(false);
+              },
+              child: const Text('Selecionar uma imagem da galeria'),
+            ),
+            SimpleDialogOption(
+              onPressed: () async {
+                Navigator.pop(context);
+                _pickImage(true);
+              },
+              child: const Text('Tirar uma nova foto'),
+            ),
+          ]);
+        });
+  }
+
+  _pickImage(bool fromCamera) async {
+    final image = fromCamera
+        ? await ImageHelper.pickImageFromCamera()
+        : await ImageHelper.pickImageFromGallery();
     if (image == null) {
       return null;
     }

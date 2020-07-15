@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:teachable_ml/pages/home_page.dart';
+import 'package:teachable_ml/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,17 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TFLite (Cat or Dog)',
-      theme: _buildTheme(),
+      theme: buildTheme(),
       home: HomePage(),
-    );
-  }
-
-  _buildTheme() {
-    return ThemeData(
-      brightness: Brightness.dark,
-      primaryColor: Color(0xFF212121),
-      accentColor: Colors.deepOrange,
-      primarySwatch: Colors.deepOrange,
     );
   }
 }
